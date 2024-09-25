@@ -404,7 +404,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.61989087, y: 0.69930667}
   m_AnchorMax: {x: 0.878, y: 0.7956934}
-  m_AnchoredPosition: {x: 317.11307, y: 155.45715}
+  m_AnchoredPosition: {x: 317.11307, y: 155.45718}
   m_SizeDelta: {x: 304.66742, y: 50.919373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200940921
@@ -835,6 +835,18 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1467071160}
+        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
+        m_MethodName: SetMixerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MasterVolume
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1467071160}
         m_TargetAssemblyTypeName: Panel, Assembly-CSharp
         m_MethodName: ToggleMusic
@@ -1532,7 +1544,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1467071160}
         m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ChangeMusicVolume
+        m_MethodName: SetMixerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MusicVolume
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1467071160}
+        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
+        m_MethodName: ChangeVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1843,7 +1867,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1467071160}
         m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ChangeAllVolume
+        m_MethodName: SetMixerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MasterVolume
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1467071160}
+        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
+        m_MethodName: ChangeVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2915,6 +2951,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24300002, guid: 55d05540e2040fc459055cbe334e681d, type: 2}
+  _allMixersNames:
+  - MasterVolume
+  - EffectsVolume
+  - MusicVolume
 --- !u!1 &1528001258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3044,7 +3084,19 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1467071160}
         m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ChangeEffectsVolume
+        m_MethodName: SetMixerName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: EffectsVolume
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1467071160}
+        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
+        m_MethodName: ChangeVolume
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -5,58 +5,45 @@ using UnityEngine.UI;
 public class Panel : MonoBehaviour
 {
     [SerializeField] private AudioMixerGroup _mixer;
+    [SerializeField] private string[] _allMixersNames;
 
     private float _minVolume = -80f;
     private float _maxVolume = 0f;
     private float _sliderDefaultValue = 1f;
     private int _toggleDefaultValue = 0;
 
-    private string _masterVolumeName = "MasterVolume";
-    private string _effectsVolumeName = "EffectsVolume";
-    private string _musicVolumeName = "MusicVolume";
     private string _togglePrefsName = "SoundsMuted";
 
     private Slider[] _sliders;
+
+    public string MixerName { get; private set; }
 
     private void Awake()
     {
         GetComponentInChildren<Toggle>().isOn = PlayerPrefs.GetInt(_togglePrefsName, _toggleDefaultValue) == _toggleDefaultValue;
         _sliders = GetComponentsInChildren<Slider>();
-        int maxIndex = _sliders.Length - 1;
 
-        _sliders[maxIndex].value = PlayerPrefs.GetFloat(_musicVolumeName, _sliderDefaultValue);
-        _sliders[--maxIndex].value = PlayerPrefs.GetFloat(_effectsVolumeName, _sliderDefaultValue);
-        _sliders[--maxIndex].value = PlayerPrefs.GetFloat(_masterVolumeName, _sliderDefaultValue);
+        for (int i = 0; i < _sliders.Length; i++)
+            _sliders[i].value = PlayerPrefs.GetFloat(_allMixersNames[i], _sliderDefaultValue);
     }
 
     public void ToggleMusic(bool muted)
     {
         if (muted)
-            _mixer.audioMixer.SetFloat(_masterVolumeName, -80);
+            _mixer.audioMixer.SetFloat(MixerName, _minVolume);
         else
-            _mixer.audioMixer.SetFloat(_masterVolumeName, 0);
+            _mixer.audioMixer.SetFloat(MixerName, _maxVolume);
 
         PlayerPrefs.SetInt(_togglePrefsName, muted ? 0 : 1);
     }
 
-    public void ChangeAllVolume(float value)
+    public void ChangeVolume(float value)
     {
-        _mixer.audioMixer.SetFloat(_masterVolumeName, Mathf.Log10(value) * 20);
+        _mixer.audioMixer.SetFloat(MixerName, Mathf.Log10(value) * 20);
 
-        PlayerPrefs.SetFloat(_masterVolumeName, value);
+        PlayerPrefs.SetFloat(MixerName, value);
     }
 
-    public void ChangeEffectsVolume(float value)
-    {
-        _mixer.audioMixer.SetFloat(_effectsVolumeName, Mathf.Log10(value) * 20);
-
-        PlayerPrefs.SetFloat(_effectsVolumeName, value);
-    }
-
-    public void ChangeMusicVolume(float value)
-    {
-        _mixer.audioMixer.SetFloat(_musicVolumeName, Mathf.Log10(value) * 20);
-
-        PlayerPrefs.SetFloat(_musicVolumeName, value);
-    }
+    public void SetMixerName(string name) =>
+        MixerName = name;
 }
