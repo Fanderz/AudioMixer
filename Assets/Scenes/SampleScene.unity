@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 30356170}
   - component: {fileID: 30356172}
   - component: {fileID: 30356171}
+  - component: {fileID: 30356173}
   m_Layer: 5
   m_Name: SoundBars
   m_TagString: Untagged
@@ -200,6 +201,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30356169}
   m_CullTransparentMesh: 1
+--- !u!114 &30356173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30356169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2978577de0727a49b56d34d03848880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allSliders:
+  - {fileID: 803948103}
+  - {fileID: 1535021892}
+  - {fileID: 659000295}
+  _toggleChanger: {fileID: 429969006}
 --- !u!1 &93687120
 GameObject:
   m_ObjectHideFlags: 0
@@ -404,7 +422,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.61989087, y: 0.69930667}
   m_AnchorMax: {x: 0.878, y: 0.7956934}
-  m_AnchoredPosition: {x: 317.11307, y: 155.45718}
+  m_AnchoredPosition: {x: 317.11307, y: 155.45721}
   m_SizeDelta: {x: 304.66742, y: 50.919373}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &200940921
@@ -761,6 +779,7 @@ GameObject:
   - component: {fileID: 429969003}
   - component: {fileID: 429969004}
   - component: {fileID: 429969005}
+  - component: {fileID: 429969006}
   m_Layer: 5
   m_Name: Toggle
   m_TagString: Untagged
@@ -834,31 +853,7 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: SetMixerName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MasterVolume
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ToggleMusic
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_IsOn: 0
 --- !u!82 &429969005
 AudioSource:
@@ -956,6 +951,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &429969006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429969002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2f2f0333a3bb040b4cf65c521e60b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerName: MasterVolume
+  _mixer: {fileID: 24300002, guid: 55d05540e2040fc459055cbe334e681d, type: 2}
 --- !u!1 &477637680
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,6 +1471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 659000293}
   - component: {fileID: 659000294}
+  - component: {fileID: 659000295}
   m_Layer: 5
   m_Name: ThirdSlider
   m_TagString: Untagged
@@ -1538,34 +1548,24 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: SetMixerName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MusicVolume
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &659000295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 659000292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1150928a54e1ee4fb3dd5bdc87a7131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerName: MusicVolume
+  _mixer: {fileID: -22881439981991518, guid: 55d05540e2040fc459055cbe334e681d, type: 2}
 --- !u!1 &703919273
 GameObject:
   m_ObjectHideFlags: 0
@@ -1785,6 +1785,7 @@ GameObject:
   m_Component:
   - component: {fileID: 803948101}
   - component: {fileID: 803948102}
+  - component: {fileID: 803948103}
   m_Layer: 5
   m_Name: FirstSlider
   m_TagString: Untagged
@@ -1861,34 +1862,24 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: SetMixerName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MasterVolume
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &803948103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803948100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1150928a54e1ee4fb3dd5bdc87a7131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerName: MasterVolume
+  _mixer: {fileID: 24300002, guid: 55d05540e2040fc459055cbe334e681d, type: 2}
 --- !u!1 &927059323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2868,7 +2859,6 @@ GameObject:
   - component: {fileID: 1467071157}
   - component: {fileID: 1467071159}
   - component: {fileID: 1467071158}
-  - component: {fileID: 1467071160}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
@@ -2938,23 +2928,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1467071156}
   m_CullTransparentMesh: 1
---- !u!114 &1467071160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1467071156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2978577de0727a49b56d34d03848880, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24300002, guid: 55d05540e2040fc459055cbe334e681d, type: 2}
-  _allMixersNames:
-  - MasterVolume
-  - EffectsVolume
-  - MusicVolume
 --- !u!1 &1528001258
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,6 +2975,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1535021890}
   - component: {fileID: 1535021891}
+  - component: {fileID: 1535021892}
   m_Layer: 5
   m_Name: SecondSlider
   m_TagString: Untagged
@@ -3078,34 +3052,24 @@ MonoBehaviour:
   m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.0001
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: SetMixerName
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: EffectsVolume
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1467071160}
-        m_TargetAssemblyTypeName: Panel, Assembly-CSharp
-        m_MethodName: ChangeVolume
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &1535021892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535021889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1150928a54e1ee4fb3dd5bdc87a7131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mixerName: EffectsVolume
+  _mixer: {fileID: 3753719422512434229, guid: 55d05540e2040fc459055cbe334e681d, type: 2}
 --- !u!1 &1563571716
 GameObject:
   m_ObjectHideFlags: 0
